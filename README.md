@@ -1,66 +1,43 @@
-## Foundry
+# Getting Started for foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Requirements
 
-Foundry consists of:
+Please install the following:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+  - You'll know you've done it right if you can run `git --version`
+- [Foundry / Foundryup](https://github.com/gakonst/foundry)
+  - This will install `forge`, `cast`, and `anvil`. [Installation Instructions](https://book.getfoundry.sh/getting-started/installation)
+  - You can test you've installed them right by running `forge --version`
 
-## Documentation
+## Quickstart
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```sh
+git clone https://github.com/https://github.com/bimkon144/foundry-scroll-fork.git
+cd FOUNDRY-SCROLL-FORK
+forge install
 ```
+# Run fork of scroll testnet
 
-### Test
+## Setup
 
-```shell
-$ forge test
-```
+You need to create a file `.env` in the project and add the following variables to it:
 
-### Format
+- `PRIVATE_KEY`: A private key from your deploying wallet. For local testing  - we can use the same as in .env.example.
 
-```shell
-$ forge fmt
-```
+## Deploying
 
-### Gas Snapshots
+To Run fork of scroll testnet - `anvil --fork-url="https://scroll-sepolia.blockpi.network/v1/rpc/public" --fork-block-number=2877322  -b=5 --chain-id=534351`
+Open new terminal and run deploy script - `forge script script/Deploy.s.sol:Deploy --rpc-url=http://localhost:8545 --broadcast`
 
-```shell
-$ forge snapshot
-```
+Scroll up and see `== Logs ==` with your token names and their addresses.
 
-### Anvil
+## SetUp Metamask
 
-```shell
-$ anvil
-```
+Go to metamask network setting and add new one - localhost: 
+![alt text](image-1.png)
 
-### Deploy
+Now switch your network to the localhost and do things:
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- click `add account` and then `import account`. Put private key from your .env.example (its local account with a lot of eth).
+- press `import tokens` and put each of token contracts we deployed earlier.
