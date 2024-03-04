@@ -13,7 +13,7 @@ Please install the following:
 ## Quickstart
 
 ```sh
-git clone https://github.com/https://github.com/bimkon144/foundry-scroll-fork.git
+git clone https://github.com/bimkon144/foundry-scroll-fork.git
 cd FOUNDRY-SCROLL-FORK
 forge install
 ```
